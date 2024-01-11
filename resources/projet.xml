@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projet name="C:\MQL\Hassib Hassnae-UML">
+  <package name="org.mql.java.explorer">
+    <classe name="ExplorerPackages">
+      <fields />
+    </classe>
+    <classe name="ExplorerProject">
+      <fields>
+        <field modifier="private" type="Set" name="packageNames" />
+      </fields>
+    </classe>
+    <classe name="ExplorerRelation">
+      <fields />
+    </classe>
+    <classe name="ExplrerClasses">
+      <fields>
+        <field modifier="private" type="int" name="nbrMethods" />
+      </fields>
+    </classe>
+    <classe name="Memoire">
+      <fields />
+    </classe>
+  </package>
+  <package name="org.mql.java.models">
+    <classe name="Adresse">
+      <fields>
+        <field modifier="private" type="String" name="rue" />
+        <field modifier="private" type="String" name="ville" />
+      </fields>
+    </classe>
+    <classe name="Cours">
+      <fields>
+        <field modifier="private" type="String" name="nom" />
+        <field modifier="private" type="int" name="heures" />
+      </fields>
+    </classe>
+    <classe name="Etudiant">
+      <fields>
+        <field modifier="private" type="int" name="id" />
+        <field modifier="private" type="String" name="CNE" />
+        <field modifier="private" type="String" name="filier" />
+        <field modifier="private" type="Adresse" name="adresse" />
+        <field modifier="private" type="List" name="cours" />
+      </fields>
+    </classe>
+    <classe name="Personne">
+      <fields>
+        <field modifier="private" type="String" name="nom" />
+        <field modifier="private" type="String" name="prenom" />
+        <field modifier="private" type="int" name="age" />
+      </fields>
+    </classe>
+  </package>
+  <package name="org.mql.java.examples">
+    <classe name="Examples">
+      <fields />
+    </classe>
+  </package>
+  <package name="org.mql.java.annotation">
+    <classe name="isMqlist">
+      <fields />
+    </classe>
+    <classe name="isObject">
+      <fields />
+    </classe>
+  </package>
+  <package name="org.mql.java.xml">
+    <classe name="XmlGenerator">
+      <fields>
+        <field modifier="static" type="Element" name="racine" />
+        <field modifier="static" type="Document" name="document" />
+        <field modifier="static" type="String" name="path" />
+        <field modifier="static" type="String" name="classpath" />
+      </fields>
+    </classe>
+  </package>
+</projet>
