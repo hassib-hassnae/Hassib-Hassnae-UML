@@ -2,23 +2,56 @@
 <projet name="C:\MQL\Hassib Hassnae-UML">
   <package name="org.mql.java.explorer">
     <classe name="ExplorerPackages">
-      <fields />
+      <methods>
+        <method modifier="public" type="Class" name="classCharger" />
+        <method modifier="public" type="List" name="scan" />
+      </methods>
+      <relations>
+        <relation classe="ClassLoader">extension</relation>
+      </relations>
     </classe>
     <classe name="ExplorerProject">
       <fields>
         <field modifier="private" type="Set" name="packageNames" />
       </fields>
+      <methods>
+        <method modifier="public" type="Set" name="scanProject" />
+        <method modifier="private static" type="String" name="removeLastElement" />
+        <method modifier="public" type="Set" name="parserFolder" />
+        <method modifier="private" type="String" name="getPackageName" />
+      </methods>
+      <relations>
+        <relation classe="Object">extension</relation>
+      </relations>
     </classe>
     <classe name="ExplorerRelation">
-      <fields />
+      <methods>
+        <method modifier="public" type="void" name="relation" />
+        <method modifier="public" type="String" name="getSuperClasse" />
+        <method modifier="public" type="String" name="getRelation" />
+        <method modifier="public" type="List" name="getInterfaces" />
+      </methods>
+      <relations>
+        <relation classe="Object">extension</relation>
+      </relations>
     </classe>
     <classe name="ExplrerClasses">
       <fields>
         <field modifier="private" type="int" name="nbrMethods" />
       </fields>
+      <methods>
+        <method modifier="public static" type="void" name="main" />
+        <method modifier="public" type="String[][]" name="getFields" />
+        <method modifier="public" type="String[][]" name="getMethods" />
+      </methods>
+      <relations>
+        <relation classe="Object">extension</relation>
+      </relations>
     </classe>
     <classe name="Memoire">
-      <fields />
+      <relations>
+        <relation classe="Object">extension</relation>
+      </relations>
     </classe>
   </package>
   <package name="org.mql.java.models">
@@ -27,42 +60,103 @@
         <field modifier="private" type="String" name="rue" />
         <field modifier="private" type="String" name="ville" />
       </fields>
+      <relations>
+        <relation classe="Object">extension</relation>
+      </relations>
     </classe>
     <classe name="Cours">
       <fields>
         <field modifier="private" type="String" name="nom" />
         <field modifier="private" type="int" name="heures" />
+        <field modifier="private" type="Etudiant" name="etudiant" />
       </fields>
+      <methods>
+        <method modifier="public" type="String" name="getNom" />
+        <method modifier="public" type="void" name="afficher" />
+        <method modifier="public" type="int" name="getHeures" />
+      </methods>
+      <relations>
+        <relation classe="Etudiant">dependency</relation>
+        <relation classe="Object">extension</relation>
+      </relations>
     </classe>
+    <interface name="Data">
+      <methods>
+        <method modifier="public abstract" type="int" name="getData" />
+      </methods>
+      <relations>
+        <relation classe="Object">extension</relation>
+      </relations>
+    </interface>
     <classe name="Etudiant">
       <fields>
         <field modifier="private" type="int" name="id" />
         <field modifier="private" type="String" name="CNE" />
         <field modifier="private" type="String" name="filier" />
         <field modifier="private" type="Adresse" name="adresse" />
-        <field modifier="private" type="List" name="cours" />
+        <field modifier="private" type="Cours" name="cours" />
       </fields>
+      <methods>
+        <method modifier="public" type="void" name="setId" />
+        <method modifier="public" type="void" name="setCNE" />
+        <method modifier="public" type="void" name="setFilier" />
+        <method modifier="public" type="String" name="getCNE" />
+        <method modifier="public" type="String" name="getFilier" />
+        <method modifier="private" type="void" name="test" />
+        <method modifier="public" type="int" name="getId" />
+      </methods>
+      <relations>
+        <relation classe="Adresse">Aggregation</relation>
+        <relation classe="Cours">Composition</relation>
+        <relation classe="Personne">extension</relation>
+      </relations>
     </classe>
     <classe name="Personne">
       <fields>
         <field modifier="private" type="String" name="nom" />
         <field modifier="private" type="String" name="prenom" />
-        <field modifier="private" type="int" name="age" />
+        <field modifier="private" type="int" name="yearBirth" />
       </fields>
+      <methods>
+        <method modifier="public" type="int" name="getData" />
+      </methods>
+      <relations>
+        <relation classe="Object">extension</relation>
+        <relation classe="Data">implementation</relation>
+      </relations>
     </classe>
   </package>
   <package name="org.mql.java.examples">
     <classe name="Examples">
-      <fields />
+      <methods>
+        <method modifier="private" type="void" name="exp01" />
+        <method modifier="public static" type="void" name="main" />
+      </methods>
+      <relations>
+        <relation classe="Object">extension</relation>
+      </relations>
     </classe>
   </package>
   <package name="org.mql.java.annotation">
-    <classe name="isMqlist">
-      <fields />
-    </classe>
-    <classe name="isObject">
-      <fields />
-    </classe>
+    <annotation name="isMqlist">
+      <methods>
+        <method modifier="public abstract" type="boolean" name="isMql" />
+      </methods>
+      <relations>
+        <relation classe="Object">extension</relation>
+        <relation classe="Annotation">implementation</relation>
+      </relations>
+    </annotation>
+    <annotation name="isObject">
+      <methods>
+        <method modifier="public abstract" type="boolean" name="isObj" />
+        <method modifier="public abstract" type="String" name="type" />
+      </methods>
+      <relations>
+        <relation classe="Object">extension</relation>
+        <relation classe="Annotation">implementation</relation>
+      </relations>
+    </annotation>
   </package>
   <package name="org.mql.java.xml">
     <classe name="XmlGenerator">
@@ -72,6 +166,14 @@
         <field modifier="static" type="String" name="path" />
         <field modifier="static" type="String" name="classpath" />
       </fields>
+      <methods>
+        <method modifier="static" type="void" name="affiche" />
+        <method modifier="static" type="void" name="enregistre" />
+        <method modifier="public static" type="void" name="main" />
+      </methods>
+      <relations>
+        <relation classe="Object">extension</relation>
+      </relations>
     </classe>
   </package>
 </projet>

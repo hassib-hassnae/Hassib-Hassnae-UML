@@ -16,20 +16,20 @@ public class Etudiant extends Personne{
 	@isObject(type = "Aggregation")
 	private Adresse adresse; //Agrégation
 	@isObject(type = "Composition")
-	 private List<Cours> cours; // Composition:La durée de vie des cours est liée à la durée de vie de l'étudiant
+	 private Cours cours; // Composition:La durée de vie des cours est liée à la durée de vie de l'étudiant
 	 
 	 public Etudiant() {
 		
 	}
 
 
-	public Etudiant(String nom, String prenom, int age,int id, String cNE, String filier, Adresse adresse) {
+	public Etudiant(String nom, String prenom, int age,int id, String cNE, String filier, Adresse adresse, Cours cours) {
 		super(nom, prenom, age);
 		this.id = id;
 		CNE = cNE;
 		this.filier = filier;
 		this.adresse = adresse;
-        this.cours = new ArrayList<>();
+        this.cours = cours;
 
 		
 	}

@@ -1,5 +1,7 @@
 package org.mql.java.explorer;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.mql.java.annotation.isObject;
 
@@ -29,5 +31,30 @@ public class ExplorerRelation {
 		}
 		 
     }
+	public String  getRelation(Field f) {
+		String relationName=null;
+		 isObject ob = f.getDeclaredAnnotation(isObject.class);
+		 if(ob!=null) {
+			 relationName = ob.type();
+			}
+		return relationName;
+		 
+	}
+	public String getSuperClasse(Class<?> c) {
+	    Class<?> superClasse = c.getSuperclass();
+	    if (superClasse != null) {
+	        return superClasse.getSimpleName();
+	    } else {
+	        return "Object"; 
+	    }
+	}
+	public List<String> getInterfaces(Class<?> c) {
+		List<String> li = new ArrayList<String>();
+		Class<?>[] interfaces = c.getInterfaces();
+        for (Class<?> interfaceClass : interfaces) {
+            li.add(interfaceClass.getSimpleName());
+        }
+        return li;
+	}
 
 }

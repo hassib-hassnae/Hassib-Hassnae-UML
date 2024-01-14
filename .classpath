@@ -7,5 +7,6 @@
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="jdom2/jdom-2.0.6.1.jar"/>
+	<classpathentry kind="lib" path="jaxb/jaxb-api.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

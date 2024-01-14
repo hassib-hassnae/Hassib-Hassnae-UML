@@ -16,7 +16,7 @@ public class ExplrerClasses {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public List<String> fields(Class<?> c) {
+	/*public List<String> fields(Class<?> c) {
 		List<String> data =  new ArrayList<>();
 		Field field[] = c.getDeclaredFields();
         for (Field f : field) {
@@ -26,22 +26,24 @@ public class ExplrerClasses {
     		data.add(f.getName());
 			}
 	return data;
-	}
+	}*/
 	public String[][] getFields(Class<?> c) {
 	    Field[] fields = c.getDeclaredFields();
 	    int nbrfields = fields.length;
-	    String data[][] = new String[3][nbrfields];
-
+	    String data[][] = new String[4][nbrfields];
 	    for (int i = 0; i < nbrfields; i++) {
 	        Field f = fields[i];
 	        int modifiers = f.getModifiers();
 	        data[0][i] = Modifier.toString(modifiers);
 	        data[1][i] = f.getType().getSimpleName();
 	        data[2][i] = f.getName();
+	        if(new ExplorerRelation().getRelation(f)!=null) {
+	        	data[3][i]=new ExplorerRelation().getRelation(f);
+	        }
 	    }
 	return data;
 	}
-	public List<String> GetMethods(Class<?> c) {
+	/*public List<String> GetMethods(Class<?> c) {
 		List<String> data =  new ArrayList<>();
 		Method methods[] = c.getDeclaredMethods();
 		for (Method m : methods) {
@@ -52,8 +54,8 @@ public class ExplrerClasses {
 		}
 		return data;
         
-	}
-	public String[][] getMethods2(Class<?> c) {
+	}*/
+	public String[][] getMethods(Class<?> c) {
 	    Method[] methods = c.getDeclaredMethods();
 	    int nbrMethods = methods.length;
 	    String[][] data = new String[3][nbrMethods];
@@ -83,10 +85,10 @@ public class ExplrerClasses {
 		        System.out.println(modifier + "\t" + type + "\t" + name);
 		    }
 		 
-		 for (int i = 0; i < e.getMethods2(c).length; i++) {
-		        String modifier = e.getMethods2(c)[0][i];
-		        String returnType = e.getMethods2(c)[1][i];
-		        String methodName = e.getMethods2(c)[2][i];
+		 for (int i = 0; i < e.getMethods(c).length; i++) {
+		        String modifier = e.getMethods(c)[0][i];
+		        String returnType = e.getMethods(c)[1][i];
+		        String methodName = e.getMethods(c)[2][i];
 
 		        System.out.println(modifier + "\t" + returnType + "\t" + methodName);
 		    }
