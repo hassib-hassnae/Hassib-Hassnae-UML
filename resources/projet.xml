@@ -26,8 +26,8 @@
     </classe>
     <classe name="ExplorerRelation">
       <methods>
-        <method modifier="public" type="void" name="relation" />
         <method modifier="public" type="String" name="getSuperClasse" />
+        <method modifier="public" type="void" name="relation" />
         <method modifier="public" type="String" name="getRelation" />
         <method modifier="public" type="List" name="getInterfaces" />
       </methods>
@@ -97,11 +97,11 @@
         <field modifier="private" type="Cours" name="cours" />
       </fields>
       <methods>
-        <method modifier="public" type="void" name="setId" />
         <method modifier="public" type="void" name="setCNE" />
-        <method modifier="public" type="void" name="setFilier" />
         <method modifier="public" type="String" name="getCNE" />
+        <method modifier="public" type="void" name="setFilier" />
         <method modifier="public" type="String" name="getFilier" />
+        <method modifier="public" type="void" name="setId" />
         <method modifier="private" type="void" name="test" />
         <method modifier="public" type="int" name="getId" />
       </methods>
@@ -167,8 +167,8 @@
         <field modifier="static" type="String" name="classpath" />
       </fields>
       <methods>
-        <method modifier="static" type="void" name="affiche" />
         <method modifier="static" type="void" name="enregistre" />
+        <method modifier="static" type="void" name="affiche" />
         <method modifier="public static" type="void" name="main" />
       </methods>
       <relations>

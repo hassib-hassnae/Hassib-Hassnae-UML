@@ -10,7 +10,7 @@ import org.jdom2.output.XMLOutputter;
 import org.mql.java.explorer.ExplorerPackages;
 import org.mql.java.explorer.ExplorerProject;
 import org.mql.java.explorer.ExplorerRelation;
-import org.mql.java.explorer.ExplrerClasses;
+import org.mql.java.explorer.ExplorerClasses;
 import org.w3c.dom.Attr;
 
 public class XmlGenerator {
@@ -61,7 +61,7 @@ public class XmlGenerator {
 				Attribute classeNames = new Attribute("name",c.getSimpleName());
 				cls.setAttribute(classeNames);
 				pack.addContent(cls);
-				ExplrerClasses properties = new ExplrerClasses(); 
+				ExplorerClasses properties = new ExplorerClasses(); 
 
 				
 				String[][] fieldsData = properties.getFields(c);

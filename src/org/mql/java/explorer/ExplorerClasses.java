@@ -8,25 +8,14 @@ import java.util.List;
 
 import org.mql.java.models.Etudiant;
 
-public class ExplrerClasses {
+public class ExplorerClasses {
 	private int nbrMethods=0;
 	//private int nbrfields=0;
 	
-	public ExplrerClasses() {
+	public ExplorerClasses() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	/*public List<String> fields(Class<?> c) {
-		List<String> data =  new ArrayList<>();
-		Field field[] = c.getDeclaredFields();
-        for (Field f : field) {
-    		int modifiers = f.getModifiers();
-        	data.add(Modifier.toString(modifiers));
-    		data.add(f.getType().getSimpleName());
-    		data.add(f.getName());
-			}
-	return data;
-	}*/
 	public String[][] getFields(Class<?> c) {
 	    Field[] fields = c.getDeclaredFields();
 	    int nbrfields = fields.length;
@@ -43,18 +32,6 @@ public class ExplrerClasses {
 	    }
 	return data;
 	}
-	/*public List<String> GetMethods(Class<?> c) {
-		List<String> data =  new ArrayList<>();
-		Method methods[] = c.getDeclaredMethods();
-		for (Method m : methods) {
-			int modifiers = m.getModifiers();
-			data.add(Modifier.toString(modifiers));
-			data.add(m.getReturnType().getSimpleName());
-			data.add(m.getName());
-		}
-		return data;
-        
-	}*/
 	public String[][] getMethods(Class<?> c) {
 	    Method[] methods = c.getDeclaredMethods();
 	    int nbrMethods = methods.length;
@@ -72,7 +49,7 @@ public class ExplrerClasses {
 	}
 	public static void main(String[] args) {
 		Class<?> c = Etudiant.class;
-		ExplrerClasses e = new ExplrerClasses();
+		ExplorerClasses e = new ExplorerClasses();
 		/*for (String s : e.GetMethods(c)) {	
 			System.out.println(s);
 		}*/
