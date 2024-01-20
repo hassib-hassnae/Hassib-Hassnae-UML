@@ -6,9 +6,9 @@ import java.util.Set;
 import org.mql.java.xml.XmlNode;
 import org.mql.java.explorer.ExplorerProject;
 
-public class ProjectParser {
+public class DomParser {
 	
-	public ProjectParser() {
+	public DomParser() {
 		parse("resources/projet.xml");
 		
 	}
@@ -62,7 +62,7 @@ public class ProjectParser {
 
 	
 	public static void main(String[] args) {
-		new ProjectParser();
+		new DomParser();
 		
 	}
 
