@@ -16,8 +16,8 @@
     </classe>
     <classe name="ExplorerPackages">
       <methods>
-        <method modifier="public" type="List" name="scan" />
         <method modifier="public" type="Class" name="classCharger" />
+        <method modifier="public" type="List" name="scan" />
       </methods>
       <relations>
         <relation classe="ClassLoader">extension</relation>
@@ -28,10 +28,10 @@
         <field modifier="private" type="Set" name="packageNames" />
       </fields>
       <methods>
-        <method modifier="private" type="String" name="getPackageName" />
-        <method modifier="public" type="Set" name="scanProject" />
-        <method modifier="private static" type="String" name="removeLastElement" />
         <method modifier="public" type="Set" name="parserFolder" />
+        <method modifier="private static" type="String" name="removeLastElement" />
+        <method modifier="public" type="Set" name="scanProject" />
+        <method modifier="private" type="String" name="getPackageName" />
       </methods>
       <relations>
         <relation classe="Object">extension</relation>
@@ -39,10 +39,10 @@
     </classe>
     <classe name="ExplorerRelation">
       <methods>
-        <method modifier="public" type="List" name="getInterfaces" />
+        <method modifier="public" type="String" name="getRelation" />
         <method modifier="public" type="String" name="getSuperClasse" />
         <method modifier="public" type="void" name="relation" />
-        <method modifier="public" type="String" name="getRelation" />
+        <method modifier="public" type="List" name="getInterfaces" />
       </methods>
       <relations>
         <relation classe="Object">extension</relation>
@@ -102,13 +102,15 @@
         <field modifier="private" type="PackagePanel" name="packagePanel" />
         <field modifier="private" type="int" name="insidePackage" />
         <field modifier="private" type="List" name="fields" />
+        <field modifier="private" type="List" name="methods" />
         <field modifier="private" type="int" name="nbrFields" />
       </fields>
       <methods>
-        <method modifier="public" type="Panel" name="parse" />
-        <method modifier="public" type="void" name="startElement" />
         <method modifier="public" type="void" name="characters" />
         <method modifier="public" type="void" name="endElement" />
+        <method modifier="public" type="void" name="startElement" />
+        <method modifier="public static" type="void" name="main" />
+        <method modifier="public" type="Panel" name="parse" />
       </methods>
       <relations>
         <relation classe="DefaultHandler">extension</relation>
@@ -132,9 +134,9 @@
         <field modifier="private" type="Etudiant" name="etudiant" />
       </fields>
       <methods>
-        <method modifier="public" type="void" name="afficher" />
-        <method modifier="public" type="String" name="getNom" />
         <method modifier="public" type="int" name="getHeures" />
+        <method modifier="public" type="String" name="getNom" />
+        <method modifier="public" type="void" name="afficher" />
       </methods>
       <relations>
         <relation classe="Etudiant">dependency</relation>
@@ -158,13 +160,13 @@
         <field modifier="private" type="Cours" name="cours" />
       </fields>
       <methods>
+        <method modifier="public" type="String" name="getFilier" />
+        <method modifier="public" type="void" name="setId" />
+        <method modifier="public" type="void" name="setCNE" />
+        <method modifier="public" type="String" name="getCNE" />
+        <method modifier="public" type="void" name="setFilier" />
         <method modifier="private" type="void" name="test" />
         <method modifier="public" type="int" name="getId" />
-        <method modifier="public" type="String" name="getFilier" />
-        <method modifier="public" type="String" name="getCNE" />
-        <method modifier="public" type="void" name="setId" />
-        <method modifier="public" type="void" name="setFilier" />
-        <method modifier="public" type="void" name="setCNE" />
       </methods>
       <relations>
         <relation classe="Adresse">Aggregation</relation>
@@ -196,11 +198,11 @@
         <field modifier="private" type="String" name="currentRelation" />
       </fields>
       <methods>
-        <method modifier="public static" type="void" name="main" />
-        <method modifier="public" type="void" name="parse" />
-        <method modifier="public" type="void" name="startElement" />
         <method modifier="public" type="void" name="characters" />
         <method modifier="public" type="void" name="endElement" />
+        <method modifier="public" type="void" name="startElement" />
+        <method modifier="public static" type="void" name="main" />
+        <method modifier="public" type="void" name="parse" />
       </methods>
       <relations>
         <relation classe="DefaultHandler">extension</relation>
@@ -210,9 +212,9 @@
   <package name="org.mql.java.examples">
     <classe name="Examples">
       <methods>
-        <method modifier="public static" type="void" name="main" />
         <method modifier="" type="void" name="exp02" />
         <method modifier="" type="void" name="exp01" />
+        <method modifier="public static" type="void" name="main" />
       </methods>
       <relations>
         <relation classe="Object">extension</relation>
@@ -231,8 +233,8 @@
     </annotation>
     <annotation name="isObject">
       <methods>
-        <method modifier="public abstract" type="String" name="type" />
         <method modifier="public abstract" type="boolean" name="isObj" />
+        <method modifier="public abstract" type="String" name="type" />
       </methods>
       <relations>
         <relation classe="Object">extension</relation>
@@ -258,9 +260,9 @@
         <field modifier="static" type="String" name="classpath" />
       </fields>
       <methods>
-        <method modifier="public static" type="void" name="main" />
         <method modifier="static" type="void" name="affiche" />
         <method modifier="static" type="void" name="enregistre" />
+        <method modifier="public static" type="void" name="main" />
       </methods>
       <relations>
         <relation classe="Object">extension</relation>
@@ -272,6 +274,8 @@
         <field modifier="private" type="XmlNode[]" name="children" />
       </fields>
       <methods>
+        <method modifier="private" type="void" name="extractChildren" />
+        <method modifier="public" type="int" name="getIntAttribute" />
         <method modifier="public" type="String" name="getName" />
         <method modifier="public" type="String" name="getValue" />
         <method modifier="public" type="boolean" name="isNamed" />
@@ -280,140 +284,6 @@
         <method modifier="public" type="void" name="setNode" />
         <method modifier="public" type="XmlNode" name="getChild" />
         <method modifier="public" type="XmlNode[]" name="getChildren" />
-        <method modifier="private" type="void" name="extractChildren" />
-        <method modifier="public" type="int" name="getIntAttribute" />
-      </methods>
-      <relations>
-        <relation classe="Object">extension</relation>
-      </relations>
-    </classe>
-  </package>
-  <package name="org.mql.java.jaxb">
-    <classe name="ClasseExplorer">
-      <methods>
-        <method modifier="public static" type="void" name="main" />
-        <method modifier="private" type="List" name="exploreMethods" />
-        <method modifier="public" type="Classes" name="exploreClass" />
-        <method modifier="private" type="List" name="exploreFields" />
-      </methods>
-      <relations>
-        <relation classe="Object">extension</relation>
-      </relations>
-    </classe>
-    <classe name="Classes">
-      <fields>
-        <field modifier="private" type="String" name="className" />
-        <field modifier="private" type="List" name="fields" />
-        <field modifier="private" type="List" name="methods" />
-      </fields>
-      <methods>
-        <method modifier="public" type="List" name="getFields" />
-        <method modifier="public" type="List" name="getMethods" />
-        <method modifier="public" type="String" name="getClassName" />
-      </methods>
-      <relations>
-        <relation classe="Object">extension</relation>
-      </relations>
-    </classe>
-    <classe name="ClassLoaderInfo">
-      <fields>
-        <field modifier="private" type="String" name="className" />
-        <field modifier="private" type="String" name="classLoader" />
-      </fields>
-      <methods>
-        <method modifier="public" type="String" name="getClassLoader" />
-        <method modifier="public" type="String" name="getClassName" />
-      </methods>
-      <relations>
-        <relation classe="Object">extension</relation>
-      </relations>
-    </classe>
-    <classe name="FieldInfo">
-      <fields>
-        <field modifier="private" type="String" name="modifier" />
-        <field modifier="private" type="String" name="type" />
-        <field modifier="private" type="String" name="name" />
-        <field modifier="private" type="String" name="relation" />
-      </fields>
-      <methods>
-        <method modifier="public" type="String" name="getName" />
-        <method modifier="public" type="String" name="getType" />
-        <method modifier="public" type="String" name="getRelation" />
-        <method modifier="public" type="String" name="getModifier" />
-      </methods>
-      <relations>
-        <relation classe="Object">extension</relation>
-      </relations>
-    </classe>
-    <classe name="MethodInfo">
-      <fields>
-        <field modifier="private" type="String" name="modifier" />
-        <field modifier="private" type="String" name="returnType" />
-        <field modifier="private" type="String" name="methodName" />
-      </fields>
-      <methods>
-        <method modifier="public" type="String" name="getReturnType" />
-        <method modifier="public" type="String" name="getMethodName" />
-        <method modifier="public" type="String" name="getModifier" />
-      </methods>
-      <relations>
-        <relation classe="Object">extension</relation>
-      </relations>
-    </classe>
-    <classe name="PackageExplorer">
-      <methods>
-        <method modifier="public static" type="void" name="main" />
-        <method modifier="private" type="ClassLoaderInfo" name="classCharger" />
-        <method modifier="private static" type="boolean" name="lambda$0" />
-        <method modifier="private static" type="boolean" name="lambda$1" />
-        <method modifier="private" type="PackageInfo" name="explorePackage" />
-        <method modifier="public" type="Packages" name="explorePackages" />
-      </methods>
-      <relations>
-        <relation classe="Object">extension</relation>
-      </relations>
-    </classe>
-    <classe name="PackageInfo">
-      <fields>
-        <field modifier="private" type="String" name="packageName" />
-        <field modifier="private" type="List" name="classLoaders" />
-      </fields>
-      <methods>
-        <method modifier="public" type="String" name="getPackageName" />
-        <method modifier="public" type="List" name="getClassLoaders" />
-      </methods>
-      <relations>
-        <relation classe="Object">extension</relation>
-      </relations>
-    </classe>
-    <classe name="Packages">
-      <fields>
-        <field modifier="private" type="String" name="basePackage" />
-        <field modifier="private" type="List" name="packageList" />
-      </fields>
-      <methods>
-        <method modifier="public" type="String" name="getBasePackage" />
-        <method modifier="public" type="List" name="getPackageList" />
-      </methods>
-      <relations>
-        <relation classe="Object">extension</relation>
-      </relations>
-    </classe>
-    <classe name="Projects">
-      <fields>
-        <field modifier="private" type="Set" name="packageNames" />
-      </fields>
-      <methods>
-        <method modifier="public" type="Set" name="getPackageNames" />
-      </methods>
-      <relations>
-        <relation classe="Object">extension</relation>
-      </relations>
-    </classe>
-    <classe name="XmlSerialisation">
-      <methods>
-        <method modifier="public static" type="void" name="main" />
-        <method modifier="public static" type="void" name="marshalToXml" />
       </methods>
       <relations>
         <relation classe="Object">extension</relation>

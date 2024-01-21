@@ -13,10 +13,10 @@ public class Panel extends JPanel {
 	
 	
 	public Panel() {
-	    setLayout(new FlowLayout(FlowLayout.LEFT));
-	    container = new JPanel(); // Ajoutez cette ligne pour initialiser container
-	    add(container);
-	    container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
+		setLayout( new FlowLayout(FlowLayout.LEFT));
+		container = new JPanel();
+		add(container);
+		container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
 	}
 	
 

@@ -16,7 +16,7 @@ public class ParserXml extends DefaultHandler{
 	private String clsName = "";
 	private int insideClasses=0;
 	private Panel panel = new Panel();
-	private PackagePanel packagePanel = new PackagePanel();
+	private PackagePanel packagePanel;
 	private int  insidePackage  =0;
 	private List<String> fields = new ArrayList<>();
 	private List<String> methods = new ArrayList<>();
@@ -44,8 +44,9 @@ public class ParserXml extends DefaultHandler{
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 		if("package".equals(qName)) {
 			insidePackage = 1;
+			packagePanel = new PackagePanel();
 		}
-		else if("classe".equals(qName) & insidePackage == 1) {
+		else if(("classe".equals(qName) || "annotation".equals(qName) || "interface".equals(qName)) & insidePackage == 1) {
 			insideClasses = 1;
 			clsName = attributes.getValue("name");
 			
