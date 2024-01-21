@@ -5,15 +5,20 @@ import java.util.List;
 
 import java.util.Set;
 
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+
 import org.mql.java.explorer.ExplorerPackages;
 import org.mql.java.explorer.ExplorerProject;
 import org.mql.java.explorer.ExplorerRelation;
 import org.mql.java.explorer.Memory;
+import org.mql.java.ui.Panel;
+import org.mql.java.ui.ParserXml;
 
 public class Examples {
 
 	public Examples() {
-		exp01();
+		exp02();
 	}
 	  void exp01() {
 		  Memory memory = new Memory("C:\\MQL\\Hassib Hassnae-UML");
@@ -26,6 +31,18 @@ public class Examples {
 				}
 		}
 	  }
+	  void exp02() {
+		    ParserXml parser = new ParserXml();
+
+		    JFrame frame = new JFrame("ClassParserFrame");
+		    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		    JScrollPane scrollPane = new JScrollPane(parser.parse("resources/projet.xml"));
+
+		    frame.setContentPane(scrollPane);
+		    frame.pack();
+		    frame.setVisible(true);
+		}
 	
 	
 	public static void main(String[] args) {

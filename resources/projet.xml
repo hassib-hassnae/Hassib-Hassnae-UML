@@ -29,9 +29,9 @@
       </fields>
       <methods>
         <method modifier="private" type="String" name="getPackageName" />
-        <method modifier="public" type="Set" name="parserFolder" />
-        <method modifier="private static" type="String" name="removeLastElement" />
         <method modifier="public" type="Set" name="scanProject" />
+        <method modifier="private static" type="String" name="removeLastElement" />
+        <method modifier="public" type="Set" name="parserFolder" />
       </methods>
       <relations>
         <relation classe="Object">extension</relation>
@@ -40,9 +40,9 @@
     <classe name="ExplorerRelation">
       <methods>
         <method modifier="public" type="List" name="getInterfaces" />
-        <method modifier="public" type="String" name="getRelation" />
         <method modifier="public" type="String" name="getSuperClasse" />
         <method modifier="public" type="void" name="relation" />
+        <method modifier="public" type="String" name="getRelation" />
       </methods>
       <relations>
         <relation classe="Object">extension</relation>
@@ -66,6 +66,55 @@
       </relations>
     </classe>
   </package>
+  <package name="org.mql.java.ui">
+    <classe name="PackagePanel">
+      <fields>
+        <field modifier="private static final" type="long" name="serialVersionUID" />
+        <field modifier="private" type="JPanel" name="container" />
+      </fields>
+      <methods>
+        <method modifier="public" type="void" name="add" />
+      </methods>
+      <relations>
+        <relation classe="JPanel">extension</relation>
+      </relations>
+    </classe>
+    <classe name="Panel">
+      <fields>
+        <field modifier="private static final" type="long" name="serialVersionUID" />
+        <field modifier="private" type="JPanel" name="container" />
+      </fields>
+      <relations>
+        <relation classe="JPanel">extension</relation>
+      </relations>
+    </classe>
+    <classe name="PanelClass">
+      <relations>
+        <relation classe="JPanel">extension</relation>
+      </relations>
+    </classe>
+    <classe name="ParserXml">
+      <fields>
+        <field modifier="private" type="String" name="tag" />
+        <field modifier="private" type="String" name="clsName" />
+        <field modifier="private" type="int" name="insideClasses" />
+        <field modifier="private" type="Panel" name="panel" />
+        <field modifier="private" type="PackagePanel" name="packagePanel" />
+        <field modifier="private" type="int" name="insidePackage" />
+        <field modifier="private" type="List" name="fields" />
+        <field modifier="private" type="int" name="nbrFields" />
+      </fields>
+      <methods>
+        <method modifier="public" type="Panel" name="parse" />
+        <method modifier="public" type="void" name="startElement" />
+        <method modifier="public" type="void" name="characters" />
+        <method modifier="public" type="void" name="endElement" />
+      </methods>
+      <relations>
+        <relation classe="DefaultHandler">extension</relation>
+      </relations>
+    </classe>
+  </package>
   <package name="org.mql.java.models">
     <classe name="Adresse">
       <fields>
@@ -83,9 +132,9 @@
         <field modifier="private" type="Etudiant" name="etudiant" />
       </fields>
       <methods>
-        <method modifier="public" type="int" name="getHeures" />
-        <method modifier="public" type="String" name="getNom" />
         <method modifier="public" type="void" name="afficher" />
+        <method modifier="public" type="String" name="getNom" />
+        <method modifier="public" type="int" name="getHeures" />
       </methods>
       <relations>
         <relation classe="Etudiant">dependency</relation>
@@ -111,11 +160,11 @@
       <methods>
         <method modifier="private" type="void" name="test" />
         <method modifier="public" type="int" name="getId" />
-        <method modifier="public" type="void" name="setId" />
-        <method modifier="public" type="void" name="setCNE" />
-        <method modifier="public" type="void" name="setFilier" />
         <method modifier="public" type="String" name="getFilier" />
         <method modifier="public" type="String" name="getCNE" />
+        <method modifier="public" type="void" name="setId" />
+        <method modifier="public" type="void" name="setFilier" />
+        <method modifier="public" type="void" name="setCNE" />
       </methods>
       <relations>
         <relation classe="Adresse">Aggregation</relation>
@@ -138,10 +187,31 @@
       </relations>
     </classe>
   </package>
+  <package name="org.mql.java.sax">
+    <classe name="SaxProjectParser">
+      <fields>
+        <field modifier="private" type="String" name="tag" />
+        <field modifier="private" type="String" name="att" />
+        <field modifier="private" type="int" name="insideClasses" />
+        <field modifier="private" type="String" name="currentRelation" />
+      </fields>
+      <methods>
+        <method modifier="public static" type="void" name="main" />
+        <method modifier="public" type="void" name="parse" />
+        <method modifier="public" type="void" name="startElement" />
+        <method modifier="public" type="void" name="characters" />
+        <method modifier="public" type="void" name="endElement" />
+      </methods>
+      <relations>
+        <relation classe="DefaultHandler">extension</relation>
+      </relations>
+    </classe>
+  </package>
   <package name="org.mql.java.examples">
     <classe name="Examples">
       <methods>
         <method modifier="public static" type="void" name="main" />
+        <method modifier="" type="void" name="exp02" />
         <method modifier="" type="void" name="exp01" />
       </methods>
       <relations>
@@ -171,7 +241,7 @@
     </annotation>
   </package>
   <package name="org.mql.java.xml">
-    <classe name="ProjectParser">
+    <classe name="DomParser">
       <methods>
         <method modifier="public static" type="void" name="main" />
         <method modifier="public" type="void" name="parse" />
@@ -210,8 +280,140 @@
         <method modifier="public" type="void" name="setNode" />
         <method modifier="public" type="XmlNode" name="getChild" />
         <method modifier="public" type="XmlNode[]" name="getChildren" />
-        <method modifier="public" type="int" name="getIntAttribute" />
         <method modifier="private" type="void" name="extractChildren" />
+        <method modifier="public" type="int" name="getIntAttribute" />
+      </methods>
+      <relations>
+        <relation classe="Object">extension</relation>
+      </relations>
+    </classe>
+  </package>
+  <package name="org.mql.java.jaxb">
+    <classe name="ClasseExplorer">
+      <methods>
+        <method modifier="public static" type="void" name="main" />
+        <method modifier="private" type="List" name="exploreMethods" />
+        <method modifier="public" type="Classes" name="exploreClass" />
+        <method modifier="private" type="List" name="exploreFields" />
+      </methods>
+      <relations>
+        <relation classe="Object">extension</relation>
+      </relations>
+    </classe>
+    <classe name="Classes">
+      <fields>
+        <field modifier="private" type="String" name="className" />
+        <field modifier="private" type="List" name="fields" />
+        <field modifier="private" type="List" name="methods" />
+      </fields>
+      <methods>
+        <method modifier="public" type="List" name="getFields" />
+        <method modifier="public" type="List" name="getMethods" />
+        <method modifier="public" type="String" name="getClassName" />
+      </methods>
+      <relations>
+        <relation classe="Object">extension</relation>
+      </relations>
+    </classe>
+    <classe name="ClassLoaderInfo">
+      <fields>
+        <field modifier="private" type="String" name="className" />
+        <field modifier="private" type="String" name="classLoader" />
+      </fields>
+      <methods>
+        <method modifier="public" type="String" name="getClassLoader" />
+        <method modifier="public" type="String" name="getClassName" />
+      </methods>
+      <relations>
+        <relation classe="Object">extension</relation>
+      </relations>
+    </classe>
+    <classe name="FieldInfo">
+      <fields>
+        <field modifier="private" type="String" name="modifier" />
+        <field modifier="private" type="String" name="type" />
+        <field modifier="private" type="String" name="name" />
+        <field modifier="private" type="String" name="relation" />
+      </fields>
+      <methods>
+        <method modifier="public" type="String" name="getName" />
+        <method modifier="public" type="String" name="getType" />
+        <method modifier="public" type="String" name="getRelation" />
+        <method modifier="public" type="String" name="getModifier" />
+      </methods>
+      <relations>
+        <relation classe="Object">extension</relation>
+      </relations>
+    </classe>
+    <classe name="MethodInfo">
+      <fields>
+        <field modifier="private" type="String" name="modifier" />
+        <field modifier="private" type="String" name="returnType" />
+        <field modifier="private" type="String" name="methodName" />
+      </fields>
+      <methods>
+        <method modifier="public" type="String" name="getReturnType" />
+        <method modifier="public" type="String" name="getMethodName" />
+        <method modifier="public" type="String" name="getModifier" />
+      </methods>
+      <relations>
+        <relation classe="Object">extension</relation>
+      </relations>
+    </classe>
+    <classe name="PackageExplorer">
+      <methods>
+        <method modifier="public static" type="void" name="main" />
+        <method modifier="private" type="ClassLoaderInfo" name="classCharger" />
+        <method modifier="private static" type="boolean" name="lambda$0" />
+        <method modifier="private static" type="boolean" name="lambda$1" />
+        <method modifier="private" type="PackageInfo" name="explorePackage" />
+        <method modifier="public" type="Packages" name="explorePackages" />
+      </methods>
+      <relations>
+        <relation classe="Object">extension</relation>
+      </relations>
+    </classe>
+    <classe name="PackageInfo">
+      <fields>
+        <field modifier="private" type="String" name="packageName" />
+        <field modifier="private" type="List" name="classLoaders" />
+      </fields>
+      <methods>
+        <method modifier="public" type="String" name="getPackageName" />
+        <method modifier="public" type="List" name="getClassLoaders" />
+      </methods>
+      <relations>
+        <relation classe="Object">extension</relation>
+      </relations>
+    </classe>
+    <classe name="Packages">
+      <fields>
+        <field modifier="private" type="String" name="basePackage" />
+        <field modifier="private" type="List" name="packageList" />
+      </fields>
+      <methods>
+        <method modifier="public" type="String" name="getBasePackage" />
+        <method modifier="public" type="List" name="getPackageList" />
+      </methods>
+      <relations>
+        <relation classe="Object">extension</relation>
+      </relations>
+    </classe>
+    <classe name="Projects">
+      <fields>
+        <field modifier="private" type="Set" name="packageNames" />
+      </fields>
+      <methods>
+        <method modifier="public" type="Set" name="getPackageNames" />
+      </methods>
+      <relations>
+        <relation classe="Object">extension</relation>
+      </relations>
+    </classe>
+    <classe name="XmlSerialisation">
+      <methods>
+        <method modifier="public static" type="void" name="main" />
+        <method modifier="public static" type="void" name="marshalToXml" />
       </methods>
       <relations>
         <relation classe="Object">extension</relation>
